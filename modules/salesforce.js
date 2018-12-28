@@ -153,6 +153,7 @@ login();
 
 exports.org = org;
 exports.findAccount = findAccount;
+exports.findCase = findCase;
 exports.findContact = findContact;
 exports.findOpportunity = findOpportunity;
 exports.getTopOpportunities = getTopOpportunities;
