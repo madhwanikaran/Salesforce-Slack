@@ -47,7 +47,7 @@ let findAccount = name => {
 let findCase = name => {
 
     return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Subject, Link, Description FROM Case WHERE Subject LIKE '%" + name + "%' LIMIT 5";
+        let q = "SELECT Id, Subject, Description FROM Case WHERE Subject LIKE '%" + name + "%' LIMIT 5";
         org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log(err);
