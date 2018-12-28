@@ -44,6 +44,22 @@ let findAccount = name => {
 
 };
 
+let findCase = name => {
+
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Subject, Link, Description FROM Case WHERE Subject LIKE '%" + name + "%' LIMIT 5";
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log(err);
+                reject("An error as occurred");
+            } else {
+                resolve(resp.records);
+            }
+        });
+    });
+
+};
+
 let findContact = name => {
 
     return new Promise((resolve, reject) => {
