@@ -2,7 +2,7 @@
 
 let http = require('http');
 
-const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN;
+const SLACK_BOT_TOKEN = 'xoxb-513353494471-512365229633-KxI7MBpIZZIFJILxzGLvDcBz';
 
 let Botkit = require('botkit'),
     formatter = require('./modules/slack-formatter'),
