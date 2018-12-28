@@ -2,11 +2,11 @@
 
 let nforce = require('nforce'),
 
-    SF_CLIENT_ID = '3MVG9ZL0ppGP5UrDgQONuDUW3jjE4GhjK4.CFKgRPNDRPhhBG2rK38TZH70DXNRZQopia0PusGYW5kJFrwy0g',
-    SF_CLIENT_SECRET = '1156559324388998127' ,
-    SF_USER_NAME = 'darthcapn@gmail.com',
-    SF_PASSWORD = 'Helloworld@018k',
-
+   
+SF_CLIENT_ID = process.env.SF_CLIENT_ID,
+    SF_CLIENT_SECRET = process.env.SF_CLIENT_SECRET,
+    SF_USER_NAME = process.env.SF_USER_NAME,
+    SF_PASSWORD = process.env.SF_PASSWORD,
     org = nforce.createConnection({
         clientId: SF_CLIENT_ID,
         clientSecret: SF_CLIENT_SECRET,
