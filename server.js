@@ -21,9 +21,9 @@ bot.startRTM(err => {
 });
 
 
-controller.hears(['help'], 'direct_message,direct_mention,mention', (bot, message) => {
+controller.hears(['help','Hi','Hey','Hi bot'], 'direct_message,direct_mention,mention', (bot, message) => {
     bot.reply(message, {
-        text: `You can ask me things like:
+        text: ` Hello there! You can ask me things like:
     "Search account Acme" or "Search Acme in acccounts"
     "Search contact Lisa Smith" or "Search Lisa Smith in contacts"
     "Search opportunity Big Deal"
@@ -32,6 +32,15 @@ controller.hears(['help'], 'direct_message,direct_mention,mention', (bot, messag
     });
 });
 
+controller.hears(['search case (.*)', 'search (.*) in cases'], 'direct_message,direct_mention,mention', (bot, message) => {
+    let name = message.match[1];
+    salesforce.findCase(name)
+        .then(cases => bot.reply(message, {
+            text: "I found these matching cases '" + name + "':",
+            attachments: formatter.formatCase(cases)
+        }))
+        .catch(error => bot.reply(message, error));
+});
 
 controller.hears(['search account (.*)', 'search (.*) in accounts'], 'direct_message,direct_mention,mention', (bot, message) => {
     let name = message.match[1];
