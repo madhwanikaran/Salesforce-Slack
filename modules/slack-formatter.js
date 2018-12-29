@@ -82,6 +82,25 @@ let formatCase = _case => {
 
 };
 
+let formatCases = cases => {
+
+    if (cases && cases.length>0) {
+        let attachments = [];
+        cases.forEach(_case => {
+            let fields = [];
+            fields.push({title: "Subject", value: _case.get("subject"), short: true});
+			fields.push({title: "Link", value: 'https://login.salesforce.com/' + _case.get("id"), short: true});
+			fields.push({title: "Description", value: _case.get("description"), short: false});
+            attachments.push({color: color, fields: fields});
+        });
+        return attachments;
+    } else {
+        return [{text: "No records"}];
+    }
+
+};
+
+exports.formatCases = formatCases;
 exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
 exports.formatContact = formatContact;
