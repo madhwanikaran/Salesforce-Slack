@@ -37,7 +37,7 @@ controller.hears(['search case (.*)', 'search (.*) in cases'], 'direct_message,d
     salesforce.findCase(name)
         .then(cases => bot.reply(message, {
             text: "I found these matching cases '" + name + "':",
-            attachments: formatter.formatCase(cases)
+            attachments: formatter.formatCases(cases)
         }))
         .catch(error => bot.reply(message, error));
 });
